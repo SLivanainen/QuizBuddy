@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    
+    
+    
+    
+    
+    
+     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+  googletag = window.googletag || { cmd: [] };
+
+  var rewardedSlot;
+  googletag.cmd.push(function () {
+    rewardedSlot = googletag.defineOutOfPageSlot(
+      '/23207217537/Rewarded',
+      googletag.enums.OutOfPageFormat.REWARDED
+      );
+
+      // Slot returns null if the page or device does not support rewarded ads.
+    if (rewardedSlot) {
+      rewardedSlot.addService(googletag.pubads());
+
+      googletag.pubads().addEventListener('rewardedSlotReady', function (event) {
+          // Automatically display the rewarded ad when it is ready.
+        event.makeRewardedVisible();
+      });
+
+      googletag.pubads().addEventListener('rewardedSlotClosed', dismissRewardedAd);
+
+      googletag.pubads().addEventListener('rewardedSlotGranted', function (event) {
+        var reward = event.payload;
+        displayModal('grant', 'YOUR VIDEO WILL START IN ' + reward.amount + ' ' + reward.type + '!');
+
+          // Delay before dismissing the rewarded ad (5 seconds in this case)
+        setTimeout(function () {
+          dismissRewardedAd();
+          }, 15000); // Adjust this value to increase/decrease the delay time.
+      });
+
+                 // Simulated GEO Targeting (for testing)
+      if (Math.random() < 1) {
+        const GEO_TARGETS = [
+          "California, US",
+
+                      "New York, US",
+
+                      "Melbourne, AU",
+
+                      "Victoria, AU",
+
+                      "Toronto, CA",
+
+                      "Ottawa, CA",
+
+                      "Wellington, NZ",        ];
+        const geoTarget = GEO_TARGETS[Math.floor(Math.random() * GEO_TARGETS.length)];
+        console.log("GEO Target Used:", geoTarget);
+        googletag.pubads().setLocation(geoTarget);
+      } 
+
+      googletag.enableServices();
+      googletag.display(rewardedSlot);
+    }
+  });
+
+  function dismissRewardedAd() {
+    displayModal();
+    googletag.destroySlots([rewardedSlot]);
+  }
+
+  function displayModal(type, message) {
+    var modal = document.getElementById('modal');
+    modal.removeAttribute('data-type');
+
+    if (type) {
+      document.getElementById('modalMessage').textContent = message;
+      modal.setAttribute('data-type', type);
+    }
+  }
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover India - Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hindi-font {
+            font-family: 'Hind', sans-serif;
+        }
+        
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .option-btn {
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .correct {
+            background-color: #10b981 !important;
+            color: white !important;
+            border-color: #10b981 !important;
+        }
+        
+        .incorrect {
+            background-color: #ef4444 !important;
+            color: white !important;
+            border-color: #ef4444 !important;
+        }
+        
+        .timer-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+        
+        .india-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff9933' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .quiz-header {
+            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-size: 600% 600%;
+            animation: gradient 10s ease infinite;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .chakra {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            opacity: 0.04;
+            z-index: 0;
+        }
+        
+        .language-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .language-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .language-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .language-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .language-slider {
+            background-color: #4f46e5;
+        }
+        
+        input:checked + .language-slider:before {
+            transform: translateX(30px);
+        }
+        
+        .article-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .apply-now-btn {
+            background: linear-gradient(90deg, #FF9933, #138808);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .apply-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .try-again-btn {
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .try-again-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ad-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            border: 1px dashed #ccc;
+        }
+        
+        /* Header bar styles */
+        .header-bar {
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 640px) {
+            .quiz-container {
+                padding: 1.25rem !important;
+                border-radius: 1rem;
+            }
+            
+            .option-btn {
+                padding: 0.75rem !important;
+                font-size: 0.95rem;
+            }
+            
+            .chakra {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .option-btn {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .option-btn:nth-child(1) { animation-delay: 0.1s; }
+        .option-btn:nth-child(2) { animation-delay: 0.2s; }
+        .option-btn:nth-child(3) { animation-delay: 0.3s; }
+        .option-btn:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="india-pattern">
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h1 class="text-lg font-semibold">
+                <span id="header-title-en">Your Exam</span>
+                <span id="header-title-hi" class="hindi-font hidden">आपकी परीक्षा</span>
+            </h1>
+        </div>
+        <div class="text-sm font-medium opacity-80">
+            <span id="header-subtitle-en">India Knowledge Test</span>
+            <span id="header-subtitle-hi" class="hindi-font hidden">भारत ज्ञान परीक्षण</span>
+        </div>
+    </div>
+
+    <div class="p-4 md:p-6">
+        <div class="max-w-3xl mx-auto">
+          
+          
+          
+         
+         
+         
+         
+         
+         <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+<div id="gpt-passback">
+
+  <script>
+
+    window.googletag = window.googletag || {cmd: []};
+
+    googletag.cmd.push(function() {
+
+    googletag.defineSlot('/23207217537/Native', [[300, 250], [336, 280], 'fluid'], 'gpt-passback').addService(googletag.pubads());
+
+    googletag.enableServices();
+
+ if (Math.random() < 1) {
+
+                    const GEO_TARGETS = [
+
+                      "California, US",
+
+                      "New York, US",
+
+                      "Melbourne, AU",
+
+                      "Victoria, AU",
+
+                      "Toronto, CA",
+
+                      "Ottawa, CA",
+
+                      "Wellington, NZ",
+
+                    ];
+
+                    const geoTarget =
+
+                      GEO_TARGETS[
+
+                        Math.floor(Math.random() * GEO_TARGETS.length)
+
+                      ];
+
+                    console.log("GEO", geoTarget);
+
+                    googletag.pubads().setLocation(geoTarget);
+
+                  }
+
+                });
+
+                googletag.cmd.push(function () {
+
+    googletag.display('gpt-passback');
+
+    });
+
+  </script>
+
+</div>
+         
+         
+         
+          
+          
+          
+            
+            <div class="quiz-container p-6 md:p-8 relative overflow-hidden">
+                <!-- Decorative Chakra -->
+                <svg class="chakra right-0 top-0 transform translate-x-1/2 -translate-y-1/2" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="120" cy="120" r="120" fill="#000080"/>
+                    <circle cx="120" cy="120" r="40" fill="none" stroke="#000080" stroke-width="2"/>
+                    <g stroke="#000080" stroke-width="2">
+                        <!-- 24 spokes of the Ashoka Chakra -->
+                        <line x1="120" y1="80" x2="120" y2="40"/>
+                        <line x1="120" y1="160" x2="120" y2="200"/>
+                        <line x1="80" y1="120" x2="40" y2="120"/>
+                        <line x1="160" y1="120" x2="200" y2="120"/>
+                        <line x1="108.8" y1="91.2" x2="77.6" y2="62.4"/>
+                        <line x1="131.2" y1="148.8" x2="162.4" y2="177.6"/>
+                        <line x1="91.2" y1="108.8" x2="62.4" y2="77.6"/>
+                        <line x1="148.8" y1="131.2" x2="177.6" y2="162.4"/>
+                        <line x1="91.2" y1="131.2" x2="62.4" y2="162.4"/>
+                        <line x1="148.8" y1="88.8" x2="177.6" y2="57.6"/>
+                        <line x1="108.8" y1="148.8" x2="77.6" y2="177.6"/>
+                        <line x1="131.2" y1="91.2" x2="162.4" y2="62.4"/>
+                    </g>
+                </svg>
+                
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-6 relative z-10">
+                    <h1 class="quiz-header text-3xl md:text-4xl font-bold mb-3 md:mb-0">
+                        <span id="title-en">Qualifying Exam</span>
+                        <span id="title-hi" class="hindi-font hidden">योग्यता परीक्षा</span>
+                    </h1>
+                    
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm font-medium">ENG</span>
+                        <label class="language-switch">
+                            <input type="checkbox" id="language-toggle">
+                            <span class="language-slider"></span>
+                        </label>
+                        <span class="ml-2 text-sm font-medium hindi-font">हिंदी</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 text-center mb-8 relative z-10 fade-in">
+                    <span id="subtitle-en" class="font-medium">You have to take this exam before applying for any job.</span>
+                    <span id="subtitle-hi" class="hindi-font hidden font-medium">आपको किसी भी नौकरी के लिए आवेदन करने से पहले यह परीक्षा देनी होगी।करें!</span>
+                </p>
+                
+                <div id="question-container" class="mb-8 relative z-10 fade-in">
+                    <h2 id="question" class="text-xl md:text-2xl font-medium mb-6 text-gray-800"></h2>
+                    
+                    <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Options will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between relative z-10 fade-in">
+                    <div class="flex items-center mb-2 md:mb-0">
+                        <span class="text-sm font-medium text-gray-600 mr-2">
+                            <span id="question-label-en">Question:</span>
+                            <span id="question-label-hi" class="hindi-font hidden">प्रश्न:</span>
+                        </span>
+                        <span id="question-number" class="text-sm font-bold text-indigo-600">1</span>
+                        <span class="text-sm font-medium text-gray-600 mx-1">/</span>
+                        <span id="total-questions" class="text-sm font-medium text-gray-600">10</span>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <span class="text-sm font-medium text-gray-600 mr-2">
+                            <span id="score-label-en">Score:</span>
+                            <span id="score-label-hi" class="hindi-font hidden">अंक:</span>
+                        </span>
+                        <span id="score" class="text-sm font-bold text-indigo-600">0</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 relative z-10 fade-in">
+                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                        <div id="timer-bar" class="timer-bar w-full"></div>
+                    </div>
+                    <div class="flex justify-between mt-1">
+                        <span class="text-xs text-gray-500">
+                            <span id="time-label-en">Time remaining</span>
+                            <span id="time-label-hi" class="hindi-font hidden">शेष समय</span>
+                        </span>
+                        <span id="timer" class="text-xs font-medium text-gray-600">15s</span>
+                    </div>
+                </div>
+            </div>
+            
+          
+            
+            <!-- Article Section -->
+            <div id="article-section" class="article-container mt-8">
+                <h2 class="text-2xl font-bold mb-4">💰 Why Free Financial Advice Matters More Than Ever</h2>
+                
+                
+                
+                 <p>Without expert guidance, it’s easy to fall into debt traps, underinsurance, or high-cost policies. Free advisory services—offered by banks, nonprofits, and government platforms—help you avoid that risk with tailored, no-cost support.</p>
+  </section>
+
+  <section id="loan-advice">
+    <h2>🏦 Smarter Borrowing: Free Loan Advisory Services</h2>
+
+    <h3>🇺🇸 USA</h3>
+    <ul>
+      <li><strong>Bank of America</strong> – Loan calculators and in-person advisors.</li>
+      <li><strong>SoFi</strong> – Personal, student, and home loan consultations.</li>
+      <li><strong>NFCC</strong> – Non-profit guidance for credit and debt management.</li>
+    </ul>
+
+    <h3>🇨🇦 Canada</h3>
+    <ul>
+      <li><strong>RBC & TD Bank</strong> – Mortgage and personal loan help.</li>
+      <li><strong>Credit Canada</strong> – Budgeting and loan counseling.</li>
+      <li><strong>BMO</strong> – Financial help for newcomers and young adults.</li>
+    </ul>
+
+    <h3>🇦🇺 Australia</h3>
+    <ul>
+      <li><strong>NAB</strong> – Borrowing calculators and free reviews.</li>
+      <li><strong>Aussie Home Loans</strong> – Expert mortgage comparisons.</li>
+      <li><strong>MoneySmart</strong> – Government-backed tools for loans.</li>
+    </ul>
+  </section>
+
+  <section id="insurance-advice">
+    <h2>🛡️ Insurance Made Simple: Free Guidance by Country</h2>
+
+    <h3>🇺🇸 USA</h3>
+    <ul>
+      <li><strong>Policygenius</strong> – Compare life, auto, and renters insurance.</li>
+      <li><strong>GEICO</strong> – Virtual insurance advice tools.</li>
+      <li><strong>State Farm</strong> – Local and online insurance agents.</li>
+    </ul>
+
+    <h3>🇨🇦 Canada</h3>
+    <ul>
+      <li><strong>Manulife & Sun Life</strong> – Licensed agents with free support.</li>
+      <li><strong>Canada Life</strong> – Digital insurance consultations.</li>
+      <li><strong>Kanetix</strong> – Compare and choose the right policy online.</li>
+    </ul>
+
+    <h3>🇦🇺 Australia</h3>
+    <ul>
+      <li><strong>iSelect</strong> – Help with car, health, and travel insurance.</li>
+      <li><strong>Allianz Australia</strong> – Live chat with insurance advisors.</li>
+      <li><strong>CHOICE Australia</strong> – Independent insurance comparisons.</li>
+    </ul>
+  </section>
+
+  <section id="benefits">
+    <h2>🧠 Benefits of Using Free Advisory Services</h2>
+    <ul>
+      <li>🚫 Avoid scams, hidden fees, or bad deals</li>
+      <li>✅ Make informed decisions with expert help</li>
+      <li>💵 Save money and time with better plans</li>
+      <li>🛡️ Get coverage that fits your budget and life</li>
+    </ul>
+  </section>
+
+  <section id="tips">
+    <h2>✅ Quick Tips Before You Start</h2>
+    <ul>
+      <li><strong>Know Your Needs</strong>: Be clear on what you want.</li>
+      <li><strong>Compare Before You Commit</strong>: Use free tools to evaluate.</li>
+      <li><strong>Verify Advisors</strong>: Ensure they’re licensed professionals.</li>
+      <li><strong>Ask Questions</strong>: Get all terms explained clearly.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <h3>Are free loan and insurance advisory services trustworthy?</h3>
+    <p>Yes. Many are backed by the government, licensed nonprofits, and major banks.</p>
+
+    <h3>Can I access these services online?</h3>
+    <p>Yes, most offer support via websites, apps, or phone—some even provide live chat.</p>
+
+    <h3>What’s the benefit of advisory help before choosing a loan?</h3>
+    <p>They guide you on better rates, repayment plans, and hidden terms to avoid.</p>
+
+    <h3>How do I know if an advisor is certified?</h3>
+    <p>Look for licensed status, official affiliations, or government recognition.</p>
+
+    <h3>Are comparison platforms safe to use?</h3>
+    <p>Yes—especially when platforms like Policygenius or iSelect are involved.</p>
+  </section>
+
+  <section id="final-thoughts">
+    <h2>📌 Final Thoughts</h2>
+    <p>You don’t need to pay to get quality financial guidance. In the USA, Canada, and Australia, free services are helping people make smarter decisions on loans and insurance every day.</p>
+    <p><strong>Before you sign that loan agreement or buy an insurance policy, explore these free options—you could save thousands and gain priceless peace of mind.</strong></p>
+  </section>
+    </div>
+                
+                
+                
+                
+                
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data with both English and Hindi
+        const quizData = [
+            {
+                questionEn: "Which river is considered sacred in Hinduism and flows through many important cities in India?",
+                questionHi: "कौन सी नदी हिंदू धर्म में पवित्र मानी जाती है और भारत के कई महत्वपूर्ण शहरों से होकर बहती है?",
+                optionsEn: ["Brahmaputra", "Yamuna", "Ganges", "Godavari"],
+                optionsHi: ["ब्रह्मपुत्र", "यमुना", "गंगा", "गोदावरी"],
+                correct: 2
+            },
+            {
+                questionEn: "Which monument in India is known as the 'Symbol of Love'?",
+                questionHi: "भारत का कौन सा स्मारक 'प्रेम का प्रतीक' के रूप में जाना जाता है?",
+                optionsEn: ["Red Fort", "Taj Mahal", "Qutub Minar", "India Gate"],
+                optionsHi: ["लाल किला", "ताज महल", "कुतुब मीनार", "इंडिया गेट"],
+                correct: 1
+            },
+            {
+                questionEn: "Which Indian state is known as 'God's Own Country'?",
+                questionHi: "किस भारतीय राज्य को 'भगवान का अपना देश' कहा जाता है?",
+                optionsEn: ["Goa", "Kerala", "Himachal Pradesh", "Uttarakhand"],
+                optionsHi: ["गोवा", "केरल", "हिमाचल प्रदेश", "उत्तराखंड"],
+                correct: 1
+            },
+            {
+                questionEn: "Who was the first Prime Minister of independent India?",
+                questionHi: "स्वतंत्र भारत के पहले प्रधानमंत्री कौन थे?",
+                optionsEn: ["Mahatma Gandhi", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Dr. B.R. Ambedkar"],
+                optionsHi: ["महात्मा गांधी", "जवाहरलाल नेहरू", "सरदार वल्लभभाई पटेल", "डॉ. बी.आर. अम्बेडकर"],
+                correct: 1
+            },
+            {
+                questionEn: "Which Indian festival is known as the 'Festival of Lights'?",
+                questionHi: "कौन सा भारतीय त्योहार 'रोशनी का त्योहार' के रूप में जाना जाता है?",
+                optionsEn: ["Holi", "Diwali", "Durga Puja", "Navratri"],
+                optionsHi: ["होली", "दिवाली", "दुर्गा पूजा", "नवरात्रि"],
+                correct: 1
+            },
+            {
+                questionEn: "Which is the national animal of India?",
+                questionHi: "भारत का राष्ट्रीय पशु कौन सा है?",
+                optionsEn: ["Lion", "Elephant", "Tiger", "Peacock"],
+                optionsHi: ["शेर", "हाथी", "बाघ", "मोर"],
+                correct: 2
+            },
+            {
+                questionEn: "Which Indian classical dance form originated in Tamil Nadu?",
+                questionHi: "कौन सा भारतीय शास्त्रीय नृत्य तमिलनाडु में उत्पन्न हुआ?",
+                optionsEn: ["Kathakali", "Bharatanatyam", "Odissi", "Kathak"],
+                optionsHi: ["कथकली", "भरतनाट्यम", "ओडिसी", "कथक"],
+                correct: 1
+            },
+            {
+                questionEn: "Which mountain range separates the Indian subcontinent from Asia?",
+                questionHi: "कौन सी पर्वत श्रृंखला भारतीय उपमहाद्वीप को एशिया से अलग करती है?",
+                optionsEn: ["Western Ghats", "Eastern Ghats", "Vindhya Range", "Himalayas"],
+                optionsHi: ["पश्चिमी घाट", "पूर्वी घाट", "विंध्य पर्वत श्रृंखला", "हिमालय"],
+                correct: 3
+            },
+            {
+                questionEn: "Which Indian scientist won the Nobel Prize for Physics in 1930?",
+                questionHi: "किस भारतीय वैज्ञानिक ने 1930 में भौतिकी के लिए नोबेल पुरस्कार जीता था?",
+                optionsEn: ["C.V. Raman", "Homi J. Bhabha", "S. Chandrasekhar", "A.P.J. Abdul Kalam"],
+                optionsHi: ["सी.वी. रमन", "होमी जे. भाभा", "एस. चंद्रशेखर", "ए.पी.जे. अब्दुल कलाम"],
+                correct: 0
+            },
+            {
+                questionEn: "Which Indian state has the highest literacy rate?",
+                questionHi: "किस भारतीय राज्य में साक्षरता दर सबसे अधिक है?",
+                optionsEn: ["Tamil Nadu", "Goa", "Kerala", "Mizoram"],
+                optionsHi: ["तमिलनाडु", "गोवा", "केरल", "मिजोरम"],
+                correct: 2
+            }
+        ];
+
+        // Quiz variables
+        let currentQuestion = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 15;
+        let isAnswered = false;
+        let isHindi = false;
+
+        // DOM elements
+        const questionElement = document.getElementById('question');
+        const optionsContainer = document.getElementById('options-container');
+        const questionNumberElement = document.getElementById('question-number');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const scoreElement = document.getElementById('score');
+        const timerElement = document.getElementById('timer');
+        const timerBarElement = document.getElementById('timer-bar');
+        const languageToggle = document.getElementById('language-toggle');
+
+        // Language elements
+        const titleEn = document.getElementById('title-en');
+        const titleHi = document.getElementById('title-hi');
+        const subtitleEn = document.getElementById('subtitle-en');
+        const subtitleHi = document.getElementById('subtitle-hi');
+        const questionLabelEn = document.getElementById('question-label-en');
+        const questionLabelHi = document.getElementById('question-label-hi');
+        const scoreLabelEn = document.getElementById('score-label-en');
+        const scoreLabelHi = document.getElementById('score-label-hi');
+        const timeLabelEn = document.getElementById('time-label-en');
+        const timeLabelHi = document.getElementById('time-label-hi');
+        const headerTitleEn = document.getElementById('header-title-en');
+        const headerTitleHi = document.getElementById('header-title-hi');
+        const headerSubtitleEn = document.getElementById('header-subtitle-en');
+        const headerSubtitleHi = document.getElementById('header-subtitle-hi');
+
+        // Language toggle event
+        languageToggle.addEventListener('change', function() {
+            isHindi = this.checked;
+            updateLanguage();
+            loadQuestion(); // Reload current question with new language
+        });
+
+        // Update language display
+        function updateLanguage() {
+            if (isHindi) {
+                titleEn.classList.add('hidden');
+                titleHi.classList.remove('hidden');
+                subtitleEn.classList.add('hidden');
+                subtitleHi.classList.remove('hidden');
+                questionLabelEn.classList.add('hidden');
+                questionLabelHi.classList.remove('hidden');
+                scoreLabelEn.classList.add('hidden');
+                scoreLabelHi.classList.remove('hidden');
+                timeLabelEn.classList.add('hidden');
+                timeLabelHi.classList.remove('hidden');
+                headerTitleEn.classList.add('hidden');
+                headerTitleHi.classList.remove('hidden');
+                headerSubtitleEn.classList.add('hidden');
+                headerSubtitleHi.classList.remove('hidden');
+                document.body.classList.add('hindi-font');
+            } else {
+                titleEn.classList.remove('hidden');
+                titleHi.classList.add('hidden');
+                subtitleEn.classList.remove('hidden');
+                subtitleHi.classList.add('hidden');
+                questionLabelEn.classList.remove('hidden');
+                questionLabelHi.classList.add('hidden');
+                scoreLabelEn.classList.remove('hidden');
+                scoreLabelHi.classList.add('hidden');
+                timeLabelEn.classList.remove('hidden');
+                timeLabelHi.classList.add('hidden');
+                headerTitleEn.classList.remove('hidden');
+                headerTitleHi.classList.add('hidden');
+                headerSubtitleEn.classList.remove('hidden');
+                headerSubtitleHi.classList.add('hidden');
+                document.body.classList.remove('hindi-font');
+            }
+        }
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsElement.textContent = quizData.length;
+            updateLanguage();
+            loadQuestion();
+        }
+
+        // Load question
+        function loadQuestion() {
+            isAnswered = false;
+            timeLeft = 15;
+            timerElement.textContent = `${timeLeft}s`;
+            timerBarElement.style.width = '100%';
+            
+            // Clear previous timer
+            if (timer) clearInterval(timer);
+            
+            // Start new timer
+            startTimer();
+            
+            const currentQuizData = quizData[currentQuestion];
+            questionElement.textContent = isHindi ? currentQuizData.questionHi : currentQuizData.questionEn;
+            questionNumberElement.textContent = currentQuestion + 1;
+            
+            optionsContainer.innerHTML = '';
+            
+            const options = isHindi ? currentQuizData.optionsHi : currentQuizData.optionsEn;
+            
+            options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('option-btn', 'p-4', 'rounded-lg', 'text-left', 'bg-white', 'hover:bg-gray-50', 'text-gray-800', 'font-medium', 'transition-all', 'shadow-sm');
+                if (isHindi) button.classList.add('hindi-font');
+                button.addEventListener('click', () => selectAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        // Start timer
+        function startTimer() {
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `${timeLeft}s`;
+                timerBarElement.style.width = `${(timeLeft / 15) * 100}%`;
+                
+                if (timeLeft <= 5) {
+                    timerBarElement.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+                }
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    if (!isAnswered) {
+                        // Auto-select wrong answer if time runs out
+                        const buttons = optionsContainer.querySelectorAll('.option-btn');
+                        buttons.forEach((button, index) => {
+                            if (index === quizData[currentQuestion].correct) {
+                                button.classList.add('correct');
+                            } else {
+                                button.classList.add('incorrect');
+                            }
+                        });
+                        
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 1500);
+                    }
+                }
+            }, 1000);
+        }
+
+        // Select answer
+        function selectAnswer(selectedIndex) {
+            if (isAnswered) return;
+            
+            isAnswered = true;
+            clearInterval(timer);
+            
+            const correctIndex = quizData[currentQuestion].correct;
+            const buttons = optionsContainer.querySelectorAll('.option-btn');
+            
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === correctIndex) {
+                    button.classList.add('correct');
+                } else if (index === selectedIndex) {
+                    if (selectedIndex !== correctIndex) {
+                        button.classList.add('incorrect');
+                    }
+                }
+            });
+            
+            if (selectedIndex === correctIndex) {
+                score++;
+                scoreElement.textContent = score;
+                
+                // Add confetti effect for correct answers
+                createConfetti();
+            }
+            
+            setTimeout(() => {
+                nextQuestion();
+            }, 1500);
+        }
+        
+        // Simple confetti effect for correct answers
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '1000';
+            document.body.appendChild(confettiContainer);
+            
+            const colors = ['#FF9933', '#FFFFFF', '#138808', '#4f46e5', '#8b5cf6'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.opacity = Math.random() * 0.8 + 0.2;
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                confettiContainer.appendChild(confetti);
+                
+                // Animate confetti
+                const animation = confetti.animate(
+                    [
+                        { transform: 'translate3d(0, 0, 0) rotate(0deg)', opacity: 1 },
+                        { transform: 'translate3d(' + (Math.random() * 100 - 50) + 'px, ' + window.innerHeight + 'px, 0) rotate(' + Math.random() * 360 + 'deg)', opacity: 0 }
+                    ],
+                    {
+                        duration: Math.random() * 1000 + 1000,
+                        easing: 'cubic-bezier(0, .9, .57, 1)',
+                        delay: Math.random() * 200
+                    }
+                );
+                
+                animation.onfinish = function() {
+                    confetti.remove();
+                    if (confettiContainer.childElementCount === 0) {
+                        confettiContainer.remove();
+                    }
+                };
+            }
+        }
+
+        // Next question
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+                // Reset timer bar color
+                timerBarElement.style.background = 'linear-gradient(90deg, #4f46e5, #8b5cf6)';
+            } else {
+                // Quiz completed
+                showResults();
+            }
+        }
+
+        // Show results
+        function showResults() {
+            const quizContainer = document.querySelector('.quiz-container');
+            const percentage = (score / quizData.length) * 100;
+            const passThreshold = 70; // 70% threshold for passing
+            const passed = percentage >= passThreshold;
+            
+            if (isHindi) {
+                quizContainer.innerHTML = `
+                    <div class="text-center py-8 hindi-font fade-in">
+                        <h2 class="quiz-header text-3xl md:text-4xl font-bold mb-6">मूल्यांकन पूरा हुआ!</h2>
+                        <p class="text-xl mb-4">आपका स्कोर: <span class="text-indigo-600 font-bold">${score}</span> / <span class="font-medium">${quizData.length}</span></p>
+                        
+                        <div class="mt-8 mb-6">
+                            ${getResultMessageHindi(score, quizData.length, passed)}
+                        </div>
+                        
+                        ${passed ? 
+                            `<a href="#" class="apply-now-btn mt-6">अभी आवेदन करें</a>` : 
+                            `<button onclick="location.reload()" class="try-again-btn mt-6">फिर से प्रयास करें</button>`
+                        }
+                        
+                        <div class="mt-8 text-sm text-gray-500">
+                            <p>इस मूल्यांकन में ${quizData.length} प्रश्न थे। आपने ${percentage.toFixed(0)}% स्कोर किया।</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                quizContainer.innerHTML = `
+                    <div class="text-center py-8 fade-in">
+                        <h2 class="quiz-header text-3xl md:text-4xl font-bold mb-6">Quiz Completed!</h2>
+                        <p class="text-xl mb-4">Your score: <span class="text-indigo-600 font-bold">${score}</span> out of <span class="font-medium">${quizData.length}</span></p>
+                        
+                        <div class="mt-8 mb-6">
+                            ${getResultMessageEnglish(score, quizData.length, passed)}
+                        </div>
+                        
+                        ${passed ? 
+                            `<a href="math-quiz.html" class="apply-now-btn mt-6">Apply Now</a>` : 
+                            `<button onclick="location.reload()" class="try-again-btn mt-6">Try Again</button>`
+                        }
+                        
+                        <div class="mt-8 text-sm text-gray-500">
+                            <p>This quiz had ${quizData.length} questions. You scored ${percentage.toFixed(0)}%.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Get result message based on score (English)
+        function getResultMessageEnglish(score, total, passed) {
+            const percentage = (score / total) * 100;
+            
+            if (passed) {
+                return `
+                    <svg class="w-24 h-24 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-xl font-medium text-gray-800">Congratulations! You've passed the quiz with flying colors. Click the button below to apply now!</p>
+                `;
+            } else {
+                return `
+                    <svg class="w-24 h-24 mx-auto mb-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-xl font-medium text-gray-800">You need to score at least 70% to qualify. Try again to improve your knowledge about India!</p>
+                `;
+            }
+        }
+
+        // Get result message based on score (Hindi)
+        function getResultMessageHindi(score, total, passed) {
+            const percentage = (score / total) * 100;
+            
+            if (passed) {
+                return `
+                    <svg class="w-24 h-24 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-xl font-medium text-gray-800">बधाई हो! आपने प्रश्नोत्तरी उत्कृष्टता के साथ पास कर ली है। अभी आवेदन करने के लिए नीचे दिए गए बटन पर क्लिक करें!</p>
+                `;
+            } else {
+                return `
+                    <svg class="w-24 h-24 mx-auto mb-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-xl font-medium text-gray-800">योग्य होने के लिए आपको कम से कम 70% स्कोर करना होगा। भारत के बारे में अपने ज्ञान को बेहतर बनाने के लिए फिर से प्रयास करें!</p>
+                `;
+            }
+        }
+
+        // Initialize the quiz when page loads
+        window.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

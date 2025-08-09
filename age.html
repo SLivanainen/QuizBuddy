@@ -1,0 +1,1242 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Confirm your age to access QUIZ BUDDY 2025 - The ultimate quiz experience">
+        <title>Confirm Your Age - QUIZ BUDDY 2025</title>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+        <script src="/js/gsebquiz.js"></script>
+        <script> window._izq = window._izq || []; window._izq.push(["init"]); </script>
+       
+        <!-- Favicon -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        
+        <!-- Preload critical assets -->
+        <link rel="preload" href="logo.svg" as="image" crossorigin>
+        <link rel="preload" href="img.jpg" as="image">
+        <link rel="preload" href="quiz.html" as="document">
+        
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+          <style>
+          .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 300px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+      
+          .modal[data-type] {
+            display: block;
+          }
+      
+          .modalDialog {
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+      
+          .grantButtons,
+          .rewardButtons {
+            display: none;
+          }
+      
+          .modal[data-type='grant'] .grantButtons,
+          .modal[data-type='reward'] .rewardButtons {
+            display: block;
+          }
+      
+          .modal input[type="button"] {
+            padding: 0.5rem;
+            background: blue;
+            border: none;
+            border-radius: 4px;
+            margin: 4px;
+            color: white;
+          }
+        </style>
+        
+        <style>
+            /* Base styles */
+            :root {
+                --primary: #0e0a5f;
+                --primary-light: #282d93;
+                --primary-dark: #080630;
+                --accent: #e74c3c;
+                --accent-hover: #c0392b;
+                --success: #28a745;
+                --success-hover: #218838;
+                --danger: #dc3545;
+                --danger-hover: #c82333;
+                --warning: #ff9800;
+                --text: #ffffff;
+                --text-muted: rgba(255, 255, 255, 0.7);
+                --bg-light: rgba(255, 255, 255, 0.1);
+                --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                --transition: all 0.3s ease;
+            }
+            
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+                color: var(--text);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+                background-color: var(--primary-dark);
+                line-height: 1.6;
+            }
+            
+            body::after {
+                background: url('img.jpg');
+                content: "";
+                position: fixed;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0.05;
+                background-size: cover;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 480px;
+                min-height: 100vh;
+                margin: 0 auto;
+                position: relative;
+                background-color: var(--primary);
+                z-index: 2;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+                display: flex;
+                flex-direction: column;
+            }
+            
+            /* Header styles */
+            header {
+                background: linear-gradient(180deg, var(--primary-light), var(--primary));
+                text-align: center;
+                box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                padding: 15px 0;
+                animation: slideDown 0.5s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            .logo-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            }
+            
+            .logo-container img {
+                height: 45px;
+                width: auto;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+                animation: pulse 3s infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+            
+            .logo-container p {
+                font-weight: 700;
+                font-size: 20px;
+                margin: 0;
+                letter-spacing: 0.5px;
+            }
+
+            .year-badge {
+                font-size: 12px;
+                background-color: var(--warning);
+                color: #000;
+                padding: 3px 8px;
+                border-radius: 12px;
+                display: inline-block;
+                margin-left: 5px;
+                font-weight: bold;
+                position: relative;
+                top: -2px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Ad container styles */
+            .ads-container {
+                background: rgba(240, 240, 240, 0.95);
+                padding: 12px;
+                text-align: center;
+                font-size: 14px;
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+                color: #333;
+                min-height: 90px;
+                animation: fadeIn 0.8s ease-in;
+            }
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .ads-container::before {
+                content: "Advertisement";
+                display: block;
+                font-size: 12px;
+                color: #888;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            
+            /* Age confirmation styles */
+            .age-confirmation {
+                padding: 30px 24px;
+                text-align: center;
+                animation: fadeInUp 0.8s ease-out;
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    transform: translateY(20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            .age-confirmation h2 {
+                font-size: 24px;
+                margin-bottom: 28px;
+                position: relative;
+                display: inline-block;
+            }
+            
+            .age-confirmation h2::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background-color: var(--accent);
+                border-radius: 3px;
+            }
+            
+            .age-confirmation p {
+                margin-bottom: 20px;
+                color: var(--text-muted);
+                font-size: 15px;
+                line-height: 1.5;
+            }
+            
+            .age-confirmation button {
+                display: block;
+                width: 100%;
+                padding: 18px;
+                margin: 20px 0;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .age-confirmation button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+            
+            .age-confirmation button:hover::before {
+                left: 100%;
+            }
+            
+            .age-confirmation button:hover {
+                transform: translateY(-3px);
+            }
+            
+            .age-confirmation button:active {
+                transform: translateY(1px);
+            }
+            
+            .age-confirmation .above-18 {
+                background: var(--success);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .age-confirmation .above-18:hover {
+                background: var(--success-hover);
+            }
+            
+            .age-confirmation .below-18 {
+                background: var(--danger);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .age-confirmation .below-18:hover {
+                background: var(--danger-hover);
+            }
+            
+            .button-icon {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-color: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                position: relative;
+            }
+            
+            .button-icon::before,
+            .button-icon::after {
+                content: "";
+                position: absolute;
+                background-color: white;
+            }
+            
+            .above-18 .button-icon::before {
+                width: 2px;
+                height: 10px;
+                top: 5px;
+                left: 9px;
+            }
+            
+            .above-18 .button-icon::after {
+                width: 10px;
+                height: 2px;
+                top: 9px;
+                left: 5px;
+            }
+            
+            .below-18 .button-icon::before {
+                width: 10px;
+                height: 2px;
+                top: 9px;
+                left: 5px;
+            }
+            
+            /* Article section styles */
+            .article-section {
+                padding: 24px;
+                border-top: 1px solid var(--bg-light);
+                font-size: 15px;
+                color: var(--text);
+                line-height: 1.7;
+                flex: 1;
+                animation: fadeIn 1s ease-out;
+            }
+            
+            .article-section h3 {
+                font-size: 22px;
+                margin-bottom: 20px;
+                color: var(--text);
+                position: relative;
+                padding-bottom: 10px;
+            }
+            
+            .article-section h3::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40px;
+                height: 3px;
+                background-color: var(--accent);
+                border-radius: 3px;
+            }
+            
+            .article-section p {
+                margin-bottom: 16px;
+                opacity: 0.9;
+            }
+            
+            .article-country {
+                display: inline-block;
+                font-size: 12px;
+                background-color: var(--bg-light);
+                padding: 3px 8px;
+                border-radius: 4px;
+                margin-bottom: 15px;
+                font-weight: 500;
+            }
+            
+            .article-keywords {
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .article-keyword {
+                font-size: 11px;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 4px 8px;
+                border-radius: 4px;
+                color: var(--text-muted);
+            }
+            
+            /* Popular categories section */
+            .popular-categories {
+                padding: 24px;
+                border-top: 1px solid var(--bg-light);
+            }
+            
+            .popular-categories h3 {
+                font-size: 20px;
+                margin-bottom: 20px;
+                color: var(--text);
+                position: relative;
+                padding-bottom: 10px;
+            }
+            
+            .popular-categories h3::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40px;
+                height: 3px;
+                background-color: var(--accent);
+                border-radius: 3px;
+            }
+            
+            .categories-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .category-item {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                padding: 15px 10px;
+                text-align: center;
+                transition: var(--transition);
+                cursor: pointer;
+            }
+            
+            .category-item:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateY(-3px);
+            }
+            
+            .category-icon {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+            
+            .category-name {
+                font-size: 14px;
+                font-weight: 500;
+            }
+            
+            /* Footer styles */
+            footer {
+                text-align: center;
+                padding: 24px 15px;
+                font-size: 13px;
+                background: rgba(0, 0, 0, 0.2);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                margin-top: auto;
+            }
+            
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .footer-links a {
+                text-decoration: none;
+                font-size: 14px;
+                color: var(--text);
+                opacity: 0.8;
+                transition: var(--transition);
+                position: relative;
+            }
+            
+            .footer-links a::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--text);
+                transition: var(--transition);
+            }
+            
+            .footer-links a:hover {
+                opacity: 1;
+            }
+            
+            .footer-links a:hover::after {
+                width: 100%;
+            }
+            
+            /* Loading indicator */
+            .loading {
+                text-align: center;
+                padding: 30px;
+                font-style: italic;
+                opacity: 0.7;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 3px solid rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                border-top-color: var(--accent);
+                animation: spin 1s linear infinite;
+            }
+            
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            /* Dice decoration */
+            .dice-decoration {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(255, 255, 255, 0.03);
+                border-radius: 10px;
+                z-index: -1;
+            }
+            
+            .dice-1 {
+                top: 20%;
+                left: -30px;
+                transform: rotate(15deg);
+                animation: float 8s ease-in-out infinite;
+            }
+            
+            .dice-2 {
+                bottom: 30%;
+                right: -30px;
+                transform: rotate(-10deg);
+                animation: float 6s ease-in-out infinite reverse;
+            }
+            
+            .dice-3 {
+                top: 60%;
+                left: -20px;
+                transform: rotate(25deg);
+                animation: float 7s ease-in-out infinite 1s;
+            }
+            
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0) rotate(15deg);
+                }
+                50% {
+                    transform: translateY(-15px) rotate(10deg);
+                }
+            }
+            
+            /* Cookie consent banner */
+            .cookie-banner {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                color: white;
+                padding: 15px 20px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                z-index: 9999;
+                transform: translateY(100%);
+                transition: transform 0.3s ease-out;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* When showing */
+            .cookie-banner.show {
+                transform: translateY(0);
+            }
+
+            /* Cookie text */
+            .cookie-text {
+                font-size: 14px;
+                flex: 1 1 100%;
+                margin-bottom: 10px;
+            }
+
+            /* Cookie buttons */
+            .cookie-buttons {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 10px;
+                margin-left: auto;
+            }
+
+            /* Buttons */
+            .cookie-btn {
+                padding: 8px 16px;
+                border: none;
+                border-radius: 4px;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition);
+            }
+
+            /* Accept button */
+            .accept-cookies {
+                background: var(--success);
+                color: white;
+            }
+
+            /* Accept hover */
+            .accept-cookies:hover {
+                background: var(--success-hover);
+            }
+
+            /* Reject button */
+            .reject-cookies {
+                background: transparent;
+                border: 1px solid white;
+                color: white;
+            }
+
+            /* Reject hover */
+            .reject-cookies:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .container {
+                    max-width: 100%;
+                    box-shadow: none;
+                }
+                
+                .dice-decoration {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .age-confirmation {
+                    padding: 24px 20px;
+                }
+                
+                .article-section {
+                    padding: 20px;
+                }
+                
+                .categories-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                }
+                
+                .cookie-banner {
+                    padding: 12px 15px;
+                }
+                
+                .cookie-text {
+                    font-size: 12px;
+                }
+                
+                .cookie-buttons .cookie-btn {
+                    padding: 6px 12px;
+                    font-size: 12px;
+                }
+                
+                .footer-links {
+                    gap: 15px;
+                }
+            }
+            
+            /* Accessibility improvements */
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border-width: 0;
+            }
+            
+            /* Focus styles for keyboard navigation */
+            a:focus, button:focus {
+                outline: 2px solid var(--warning);
+                outline-offset: 2px;
+            }
+            
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    /* Dark mode colors are already set as default */
+                }
+            }
+            
+            /* Light mode support */
+            @media (prefers-color-scheme: light) {
+                :root {
+                    /* Keep the same colors for consistency */
+                }
+            }
+        </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <style>
+          .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 300px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+      
+          .modal[data-type] {
+            display: block;
+          }
+      
+          .modalDialog {
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+      
+          .grantButtons,
+          .rewardButtons {
+            display: none;
+          }
+      
+          .modal[data-type='grant'] .grantButtons,
+          .modal[data-type='reward'] .rewardButtons {
+            display: block;
+          }
+      
+          .modal input[type="button"] {
+            padding: 0.5rem;
+            background: blue;
+            border: none;
+            border-radius: 4px;
+            margin: 4px;
+            color: white;
+          }
+        </style>
+    </head>
+    <body>
+            <div id="modal" class="modal">
+        <div class="modalDialog">
+          <p id="modalMessage"></p>
+
+          <span class="grantButtons">
+            <input type="button" onclick="dismissRewardedAd();" value="Close" />
+          </span>
+        </div>
+      </div>
+        <div class="container">
+            <div class="dice-decoration dice-1" aria-hidden="true"></div>
+            <div class="dice-decoration dice-2" aria-hidden="true"></div>
+            <div class="dice-decoration dice-3" aria-hidden="true"></div>
+            
+            <header>
+                <div class="logo-container">
+                    <div style="width: 40px; height: 40px; background-color: #ff9800; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 20px; color: #000;" aria-label="Quiz Buddy Logo">QT</div>
+                    <div>
+                        <p>QUIZ BUDDY <span class="year-badge">2025</span></p>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="ads-container" role="complementary" aria-label="Advertisement">      
+                <center>
+
+   
+   
+ 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+    </center>
+            </div>
+            
+            <main>
+                <section class="age-confirmation">
+                    <h2>Confirm Your Age</h2>
+                    <p>To ensure we provide appropriate content, please confirm your age before continuing to QUIZ BUDDY 2025.</p>
+                    <button class="above-18" id="above-18-btn" aria-label="Confirm I am 18 or older">
+                        <span class="button-icon" aria-hidden="true"></span>
+                        I am 18 or older
+                    </button>
+                    <button class="below-18" id="below-18-btn" aria-label="Confirm I am under 18">
+                        <span class="button-icon" aria-hidden="true"></span>
+                        I am under 18
+                    </button>
+                </section>
+                
+                <section class="article-section" id="article-section" aria-live="polite">
+                    <div class="loading">
+                        <div class="loading-spinner" aria-hidden="true"></div>
+                        <p>Loading interesting articles...</p>
+                    </div>
+                </section>
+                
+                <section class="popular-categories">
+                    <h3>Popular Quiz Categories</h3>
+                    <div class="categories-grid" role="menu">
+                        <div class="category-item" data-category="geography" role="menuitem" tabindex="0">
+                            <div class="category-icon" aria-hidden="true">🌎</div>
+                            <div class="category-name">Geography</div>
+                        </div>
+                        <div class="category-item" data-category="history" role="menuitem" tabindex="0">
+                            <div class="category-icon" aria-hidden="true">📜</div>
+                            <div class="category-name">History</div>
+                        </div>
+                        <div class="category-item" data-category="science" role="menuitem" tabindex="0">
+                            <div class="category-icon" aria-hidden="true">🔬</div>
+                            <div class="category-name">Science</div>
+                        </div>
+                        <div class="category-item" data-category="entertainment" role="menuitem" tabindex="0">
+                            <div class="category-icon" aria-hidden="true">🎬</div>
+                            <div class="category-name">Entertainment</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            
+            <footer>
+                <nav aria-label="Footer Navigation">
+                    <div class="footer-links">
+                        <a href="about-us.html">About Us</a>
+                        <a href="contact-us.html">Contact Us</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                    </div>
+                </nav>
+                <p>&copy; 2025 QUIZ BUDDY. All rights reserved.</p>
+            </footer>
+        </div>
+        
+        <div class="cookie-banner" id="cookie-banner" role="alert" aria-live="polite">
+            <div class="cookie-text">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept-cookies" id="accept-cookies">Accept</button>
+                <button class="cookie-btn reject-cookies" id="reject-cookies">Reject</button>
+            </div>
+        </div>
+        
+        <script>
+            // Set default category to geography
+            localStorage.setItem('selectedCategory', 'geography');
+            
+            // Preload quiz.html
+            function preloadQuizPage() {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'document';
+                link.href = 'quiz.html';
+                document.head.appendChild(link);
+            }
+            
+            // Hardcoded high CPC/RPM articles from USA and UK
+    const highValueArticles = [
+        {
+            id: 1,
+            title: "Top Online University Degrees in 2025 with the Highest ROI",
+            country: "USA",
+            keywords: ["online degrees", "university programs", "distance education", "high ROI degrees", "accredited online colleges"],
+            content: [
+                "In 2025, online education has become the preferred path for students seeking flexibility, lower costs, and career advancement. Top-tier universities now offer accredited online degrees that match the quality of in-person programs, making this an ideal time for learners to invest in high-ROI education.",
+                "Online degrees with the highest ROI are typically in fields that are in high demand and offer strong salary potential. Programs in Business Administration (MBA), Computer Science, Data Analytics, Cybersecurity, and Healthcare Management continue to dominate, with graduates landing high-paying jobs in the U.S. job market.",
+                "Top institutions such as University of Florida Online, Arizona State University, Purdue University Global, and Western Governors University have expanded their offerings. These schools are known for industry-aligned curriculums, flexible scheduling, and affordable tuition—key factors in driving high enrollment and ad revenue potential for content related to them.",
+                "Many students now prefer online learning not just for convenience, but also because of its financial feasibility. With no housing costs, fewer commuting expenses, and the ability to work while studying, online university degrees provide excellent long-term value.",
+                "Another reason advertisers are bidding high on this niche is the strong interest from international students. Many programs are now open globally, and students from countries like India, the Philippines, and Nigeria are applying in record numbers. Education platforms, financial service providers, and loan companies actively target this traffic—raising the CPC significantly.",
+                "Articles that review, compare, or guide users through university application processes, financial aid, or job prospects tend to rank well and attract top-tier ads. For example, writing about ‘Top 10 Online Universities for 2025’ or ‘How to Apply for Online Degrees with Scholarships’ can generate both organic traffic and strong monetization.",
+                "As online learning becomes more personalized through AI and analytics, degrees are now more efficient and job-focused. In many cases, online students graduate faster and with more practical skills, especially in tech-focused programs.",
+                "In conclusion, online university degrees in 2025 aren’t just a convenient option—they are a financially smart choice. For content creators and bloggers, this niche offers one of the best combinations of high search interest and advertiser demand, making it perfect for monetization through AdSense, AdX, or affiliate programs."
+            ]
+        },
+        {
+            id: 2,
+            title: "Best UK Universities for Online Master’s Degrees in 2025",
+            country: "UK",
+            keywords: ["UK universities", "online master's programs", "postgraduate education", "distance learning UK", "study in UK"],
+            content: [
+                "As of 2025, UK universities have made significant progress in delivering high-quality online master’s degrees to both domestic and international students. These programs offer flexibility, prestige, and career advancement without the cost and hassle of relocating.",
+                "Top-ranked institutions such as University of London, King’s College London, University of Birmingham, and University of Manchester now offer comprehensive online postgraduate degrees in subjects like Business, Law, Education, and Public Health.",
+                "One major appeal is that UK master’s programs are often just one year in duration, making them a fast-track option for working professionals. These shorter timelines also appeal to advertisers in visa services, career coaching, and education funding—driving up CPC values.",
+                "UK universities use advanced digital platforms to deliver lectures, assessments, and live sessions. Students gain access to the same faculty and alumni network as their on-campus peers, which enhances the value of the degree for career growth.",
+                "Online education in the UK is also supported by global initiatives. Universities have partnered with platforms like Coursera, FutureLearn, and edX to expand access to international students—particularly in Asia, the Middle East, and Africa.",
+                "Content covering rankings, reviews, or comparisons of these online master’s programs performs well in organic search and attracts high-value education and finance-related ads. Articles like ‘Top 5 Online MBA Programs in the UK’ or ‘Cheapest Accredited UK Online Master’s’ can generate consistent traffic and revenue.",
+                "With the UK’s education system known for academic rigor and international recognition, promoting online degrees from these universities continues to be a reliable way to target a global student audience and drive affiliate or ad revenue."
+            ]
+        },
+        {
+            id: 3,
+            title: "How to Get Scholarships for Online Degrees in 2025",
+            country: "USA",
+            keywords: ["online scholarships", "tuition help", "financial aid USA", "scholarships 2025", "student funding"],
+            content: [
+                "In 2025, the availability of scholarships for online degrees has significantly improved. Many U.S. universities now offer full or partial funding options specifically for distance learners. This has opened the door for students who previously couldn’t afford college.",
+                "Popular online schools such as Southern New Hampshire University, Liberty University, and Western Governors University provide generous financial aid through both merit-based and need-based scholarships. These programs make online learning accessible and appealing to a larger audience.",
+                "In addition to university-based aid, students can apply for federal grants like FAFSA, and third-party scholarships from corporations, nonprofits, and tech platforms that support online education.",
+                "Articles that help students understand how to apply for scholarships, write winning essays, or avoid scams tend to generate high click-through rates. These pages attract CPC-rich keywords like 'student loans', 'tuition calculator', and 'online financial aid'.",
+                "Content marketers can further boost ad revenue by including lists of active scholarship programs, application deadlines, and links to apply. Pairing this with affiliate offers from test prep or resume platforms adds even more monetization options.",
+                "For students, these resources are essential to reducing debt. For publishers, it's a perfect blend of helpful content and commercial opportunity."
+            ]
+        },
+        {
+            id: 4,
+            title: "Top Online MBA Programs in 2025 for Working Professionals",
+            country: "USA",
+            keywords: ["online MBA", "executive education", "business school online", "MBA 2025", "affordable MBA"],
+            content: [
+                "The online MBA remains one of the highest-earning degrees in 2025. Designed for busy professionals, these programs offer part-time and flexible schedules while maintaining high academic standards. They are also one of the most advertiser-friendly education niches.",
+                "Top-ranked universities like Indiana University (Kelley School), University of North Carolina (Kenan-Flagler), and University of Florida (Warrington) offer competitive online MBAs recognized by employers worldwide.",
+                "These programs focus on leadership, business analytics, entrepreneurship, and digital marketing. The target audience includes mid-career professionals, startup founders, and corporate managers looking to upskill without leaving their jobs.",
+                "Most programs now integrate live virtual classrooms, case-based learning, and one-on-one mentorship. Some also offer global immersion or hybrid formats that include short campus visits.",
+                "Articles comparing online MBA rankings, tuition costs, or application tips tend to perform well in search and generate high CPMs. Additionally, content that highlights salary increases or job outcomes after graduation drives strong interest from education and recruiting advertisers.",
+                "As employers continue to recognize the credibility of online MBA programs, student demand and advertiser bids will remain high throughout 2025 and beyond."
+            ]
+        },
+        {
+            id: 5,
+            title: "USA vs UK: Which Country Offers Better Online Degrees in 2025?",
+            country: "UK",
+            keywords: ["USA vs UK education", "study abroad online", "online degrees comparison", "distance learning 2025", "UK vs US university"],
+            content: [
+                "Choosing between a UK or USA-based online degree depends on multiple factors—duration, cost, global recognition, and course specialization. In 2025, both countries offer strong online education ecosystems, but they appeal to slightly different student needs.",
+                "UK online degrees tend to be shorter (1-year master’s programs), more affordable, and focused on academic theory and critical thinking. USA programs are longer but emphasize flexibility, electives, and career placement.",
+                "Tuition in the UK is often lower, but U.S. universities offer more scholarships and employer reimbursement options. Both countries offer accredited programs with global acceptance.",
+                "Students interested in business, tech, and healthcare often choose U.S. programs, while those in law, humanities, and public health may prefer UK institutions.",
+                "For blog owners, comparison-style content like 'UK vs US MBA: Which is Better for Career Growth?' attracts searchers and converts well through ads related to loans, study visas, and education platforms.",
+                "With increased cross-border interest in education, targeting both UK and U.S. keywords ensures a broader reach and stronger monetization strategy."
+            ]
+        }
+    ];
+            
+            // Display a random article from the hardcoded collection
+            function displayRandomArticle() {
+                const articleSection = document.getElementById('article-section');
+                
+                // Select a random article
+                const randomIndex = Math.floor(Math.random() * highValueArticles.length);
+                const article = highValueArticles[randomIndex];
+                
+                // Construct the article content with paragraphs
+                const paragraphs = article.content.map(paragraph => `<p>${paragraph}</p>`).join('');
+                
+                // Display keywords as tags
+                const keywordTags = article.keywords 
+                    ? article.keywords.map(keyword => `<span class="article-keyword">${keyword}</span>`).join('')
+                    : '';
+                    
+                // Update the article section with the content
+                articleSection.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <div class="article-country">${article.country}</div>
+                    ${paragraphs}
+                    <div class="article-keywords">
+                        ${keywordTags}
+                    </div>
+                `;
+            }
+
+            // Handle cookie consent
+            function setupCookieConsent() {
+                const cookieBanner = document.getElementById('cookie-banner');
+                const acceptBtn = document.getElementById('accept-cookies');
+                const rejectBtn = document.getElementById('reject-cookies');
+                
+                // Check if user already accepted cookies
+                const cookieConsent = localStorage.getItem('cookieConsent');
+                
+                if (!cookieConsent) {
+                    // Show the banner with animation
+                    setTimeout(() => {
+                        cookieBanner.classList.add('show');
+                    }, 1000);
+                    
+                    // Set up event listeners for buttons
+                    acceptBtn.addEventListener('click', () => {
+                        localStorage.setItem('cookieConsent', 'accepted');
+                        cookieBanner.classList.remove('show');
+                    });
+                    
+                    rejectBtn.addEventListener('click', () => {
+                        localStorage.setItem('cookieConsent', 'rejected');
+                        cookieBanner.classList.remove('show');
+                    });
+                }
+            }
+            
+            // Set up category selection
+            function setupCategorySelection() {
+                const categoryItems = document.querySelectorAll('.category-item');
+                
+                categoryItems.forEach(item => {
+                    // Add click event listener
+                    item.addEventListener('click', () => {
+                        const category = item.dataset.category;
+                        if (category) {
+                            localStorage.setItem('selectedCategory', category);
+                            // Redirect directly to quiz.html with the selected category
+                            window.location.href = `quiz.html?category=${category}`;
+                        }
+                    });
+                    
+                    // Add keyboard accessibility
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const category = item.dataset.category;
+                            if (category) {
+                                localStorage.setItem('selectedCategory', category);
+                                window.location.href = `quiz.html?category=${category}`;
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // Initialize page
+            document.addEventListener("DOMContentLoaded", () => {
+                // Display a random article immediately instead of trying to fetch
+                displayRandomArticle();
+                
+                // Preload quiz page
+                preloadQuizPage();
+                
+                // Set up cookie consent
+                setupCookieConsent();
+                
+                // Set up category selection
+                setupCategorySelection();
+                
+                // Set up direct redirect for below-18 button
+                const below18Btn = document.getElementById('below-18-btn');
+                if (below18Btn) {
+                    below18Btn.addEventListener('click', () => {
+                        // Add button press effect
+                        below18Btn.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            // Store age verification result
+                            localStorage.setItem('ageVerified', 'under18');
+                            // Redirect directly to quiz.html with geography category
+                            window.location.href = "quiz.html?category=geography";
+                        }, 200);
+                    });
+                }
+                
+                // Set up ad handling for above-18 button
+                try {
+                    const adHandler = new JbRewardedAdHandler();
+                    
+                    const onAdGranted = (passbackConfig) => {
+                        console.log("Ad was granted.", passbackConfig);
+                        // Store age verification result
+                        localStorage.setItem('ageVerified', 'adult');
+                        
+                        // Redirect to quiz.html with geography category
+                        window.location.href = "quiz.html?category=geography";
+                    };
+
+                    const onAdRejected = (passbackConfig) => {
+                        console.log("Ad was rejected.", passbackConfig);
+                        // Store age verification result
+                        localStorage.setItem('ageVerified', 'adult');
+                        
+                        // Redirect to quiz.html with geography category
+                        window.location.href = "quiz.html?category=geography";
+                    };
+                    
+                    adHandler.onAdGranted(onAdGranted);
+                    adHandler.onAdRejected(onAdRejected);
+
+                    adHandler.onReady(() => {
+                        console.log("Rewarded Ad Handler is ready.");
+                        const above18Btn = document.getElementById('above-18-btn');
+                        if (above18Btn) {
+                            above18Btn.addEventListener('click', (evt) => {
+                                evt.preventDefault();
+                                // Add button press effect
+                                above18Btn.style.transform = 'scale(0.98)';
+                                setTimeout(() => {
+                                    adHandler.renderAd({
+                                        href: "quiz.html?category=geography",
+                                    });
+                                }, 200);
+                            });
+                        }
+                    });
+                } catch (error) {
+                    console.error("Error initializing ad handler:", error);
+                    // Fallback if ad handler fails
+                    const above18Btn = document.getElementById('above-18-btn');
+                    if (above18Btn) {
+                        above18Btn.addEventListener('click', () => {
+                            // Add button press effect
+                            above18Btn.style.transform = 'scale(0.98)';
+                            setTimeout(() => {
+                                // Store age verification result
+                                localStorage.setItem('ageVerified', 'adult');
+                                
+                                // Redirect to quiz.html with geography category
+                                window.location.href = "quiz.html?category=geography";
+                            }, 200);
+                        });
+                    }
+                }
+            });
+            
+            // Check if user has already verified age
+            function checkAgeVerification() {
+                const ageVerified = localStorage.getItem('ageVerified');
+                if (ageVerified) {
+                    // If already verified, redirect directly to quiz.html
+                    window.location.href = "quiz.html?category=geography";
+                }
+            }
+            
+            // Check age verification on page load
+            checkAgeVerification();
+        </script>
+
+
+
+    </body>
+    </html>

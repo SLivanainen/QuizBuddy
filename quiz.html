@@ -1,0 +1,1584 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Test your knowledge with QUIZ BUDDY 2025 - World Geography Quiz">
+        <title>World Geography Quiz - QUIZ BUDDY 2025</title>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <style>
+            /* CSS Variables for theming */
+            :root {
+                --primary: #0e0a5f;
+                --primary-light: #282d93;
+                --primary-dark: #090551;
+                --secondary: #e74c3c;
+                --accent: #ff9800;
+                --success: #28a745;
+                --success-hover: #218838;
+                --danger: #dc3545;
+                --danger-hover: #c82333;
+                --text: #ffffff;
+                --text-muted: rgba(255, 255, 255, 0.7);
+                --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                --transition: all 0.3s ease;
+            }
+
+            /* Base styles */
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+                color: var(--text);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+                background-color: var(--primary-dark);
+                line-height: 1.6;
+            }
+
+            body::after {
+                background-color: #090551;
+                background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23ffffff" stroke-width="1" stroke-opacity="0.1"/></svg>');
+                content: "";
+                position: fixed;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0.2;
+                background-size: 100px 100px;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 480px;
+                min-height: 100vh;
+                margin: 0 auto;
+                position: relative;
+                background-color: var(--primary);
+                z-index: 2;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Header styles */
+            header {
+                background: linear-gradient(180deg, var(--primary-light), var(--primary));
+                text-align: center;
+                box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                padding: 15px 0;
+                animation: slideDown 0.5s ease-out;
+            }
+
+            @keyframes slideDown {
+                from {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .logo-container img {
+                height: 40px;
+                width: auto;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            }
+
+            .logo-container p {
+                font-weight: 700;
+                font-size: 18px;
+                margin: 0;
+                color: var(--text);
+            }
+
+            .year-badge {
+                font-size: 12px;
+                background-color: var(--accent);
+                color: #000;
+                padding: 3px 8px;
+                border-radius: 12px;
+                display: inline-block;
+                margin-left: 5px;
+                font-weight: bold;
+                position: relative;
+                top: -2px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Ad container styles */
+            .ads-container {
+                background: rgba(240, 240, 240, 0.95);
+                padding: 12px;
+                text-align: center;
+                font-size: 14px;
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+                color: #333;
+                min-height: 90px;
+                animation: fadeIn 0.8s ease-in;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .ads-container::before {
+                content: "Advertisement";
+                display: block;
+                font-size: 12px;
+                color: #888;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            /* Quiz container styles */
+            .quiz-container {
+                padding: 20px;
+                text-align: center;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            .quiz-header {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            /* Quiz category */
+            .quiz-category {
+                margin-bottom: 20px;
+            }
+
+            .category-badge {
+                display: inline-block;
+                background: linear-gradient(45deg, #3498db, #2980b9);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-weight: 600;
+                font-size: 14px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                position: relative;
+            }
+
+            /* Category-specific styling */
+            .category-badge.geography::before {
+                content: "🌎";
+                margin-right: 6px;
+            }
+
+            .category-badge.history::before {
+                content: "📜";
+                margin-right: 6px;
+            }
+
+            .category-badge.science::before {
+                content: "🔬";
+                margin-right: 6px;
+            }
+
+            .category-badge.math::before {
+                content: "🧮";
+                margin-right: 6px;
+            }
+
+            .category-badge.sports::before {
+                content: "⚽";
+                margin-right: 6px;
+            }
+
+            .category-badge.entertainment::before {
+                content: "🎬";
+                margin-right: 6px;
+            }
+
+            .category-badge.technology::before {
+                content: "💻";
+                margin-right: 6px;
+            }
+
+            .category-badge.general::before {
+                content: "🧠";
+                margin-right: 6px;
+            }
+
+            /* Coins display */
+            .coins {
+                font-size: 18px;
+                margin-bottom: 20px;
+                padding: 12px 20px;
+                border-radius: 12px;
+                color: var(--text);
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 350px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .coins::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                animation: shimmer 2s infinite;
+            }
+
+            @keyframes shimmer {
+                100% {
+                    left: 100%;
+                }
+            }
+
+            .coins span {
+                margin: 0 10px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .coin-icon {
+                font-size: 22px;
+                animation: spin 4s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            /* Progress indicator */
+            .progress {
+                font-size: 16px;
+                color: var(--text-muted);
+                background: rgba(255, 255, 255, 0.05);
+                padding: 8px 15px;
+                border-radius: 20px;
+                display: inline-block;
+                margin: 0 auto;
+            }
+
+            .progress-current {
+                font-weight: 700;
+                color: var(--accent);
+            }
+
+            /* Coin popup animation */
+            .coin-popup {
+                font-size: 24px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: bold;
+                display: none;
+                z-index: 1000;
+                text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+                padding: 15px 25px;
+                border-radius: 12px;
+                background: rgba(0, 0, 0, 0.8);
+                color: var(--text);
+            }
+
+            @keyframes fadeMove {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -30%);
+                }
+                20% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+                80% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -70%);
+                }
+            }
+
+            /* Question styles */
+            .question {
+                font-size: 22px;
+                margin-bottom: 25px;
+                line-height: 1.4;
+                font-weight: 600;
+                color: var(--text);
+                padding: 0 10px;
+                position: relative;
+            }
+
+            .question::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background-color: var(--secondary);
+                border-radius: 3px;
+            }
+
+            /* Options container */
+            .options-container {
+                position: relative;
+                background-color: var(--primary-light);
+                border-radius: 16px;
+                min-height: 280px; /* Increased height to accommodate timer */
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                margin-bottom: 20px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                overflow: visible; /* Changed from hidden to visible */
+                padding-top: 60px; /* Added padding to make room for timer */
+            }
+
+            .options-container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+                pointer-events: none;
+            }
+
+            /* Options grid */
+            .options {
+                padding: 1rem;
+                width: 100%;
+                display: grid;
+                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                position: relative;
+                z-index: 5;
+            }
+
+            .options button {
+                width: 100%;
+                padding: 16px 10px;
+                margin: 0;
+                background: linear-gradient(45deg, #4facfe, #0072ff);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 500;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 60px;
+            }
+
+            .options button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .options button:hover::before {
+                left: 100%;
+            }
+
+            .options button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            .options button:active {
+                transform: translateY(1px);
+            }
+
+            .options button.correct {
+                background: var(--success) !important;
+                color: var(--text) !important;
+                animation: pulse 1s;
+            }
+
+            .options button.wrong {
+                background: var(--danger) !important;
+                color: var(--text) !important;
+                animation: shake 0.5s;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+                }
+                70% {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+                }
+            }
+
+            @keyframes shake {
+                0%, 100% {
+                    transform: translateX(0);
+                }
+                10%, 30%, 50%, 70%, 90% {
+                    transform: translateX(-5px);
+                }
+                20%, 40%, 60%, 80% {
+                    transform: translateX(5px);
+                }
+            }
+
+            /* Timer styles */
+            .timer-container {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 50%;
+                background: var(--primary-light);
+                top: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .timer-svg {
+                transform: scaleX(-1);
+                width: 100px;
+                height: 100px;
+            }
+
+            .timer-circle {
+                fill: none;
+                stroke: none;
+            }
+
+            .timer-path-elapsed {
+                stroke-width: 7px;
+                stroke: rgba(255, 255, 255, 0.1);
+            }
+
+            .timer-path-remaining {
+                stroke-width: 7px;
+                stroke-linecap: round;
+                transform: rotate(90deg);
+                transform-origin: center;
+                transition: 1s linear all;
+                stroke: currentColor;
+                color: #4facfe;
+            }
+
+            .timer-path-remaining.warning {
+                color: var(--accent);
+            }
+
+            .timer-path-remaining.alert {
+                color: var(--danger);
+            }
+
+            .timer-label {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .timer-inner {
+                border-radius: 50%;
+                background: var(--primary-light);
+                border: 6px solid var(--primary-dark);
+                width: 80px;
+                height: 80px;
+                position: absolute;
+            }
+
+            .timer-seconds {
+                position: relative;
+                z-index: 1002;
+                font-weight: 700;
+            }
+
+            /* Description styles */
+            .description {
+                margin-top: 20px;
+                padding: 18px;
+                background: var(--primary-light);
+                border-radius: 12px;
+                font-size: 15px;
+                color: var(--text);
+                line-height: 1.6;
+                text-align: left;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .description::before {
+                content: "📝 Explanation";
+                display: block;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: var(--accent);
+                font-size: 16px;
+            }
+
+            /* Popup styles */
+            .popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 2000;
+                animation: fadeIn 0.3s ease-out;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+
+            .popup-content {
+                width: 90%;
+                max-width: 350px;
+                padding: 25px;
+                background: white;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+                border-radius: 16px;
+                text-align: center;
+                position: relative;
+                animation: scaleIn 0.3s ease-out;
+            }
+
+            @keyframes scaleIn {
+                from {
+                    transform: scale(0.9);
+                    opacity: 0;
+                }
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .popup h2 {
+                font-size: 22px;
+                margin-bottom: 15px;
+                color: #333;
+            }
+
+            .popup p {
+                font-size: 16px;
+                margin-bottom: 25px;
+                color: #555;
+                line-height: 1.5;
+            }
+
+            .popup-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .popup button {
+                padding: 12px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: var(--transition);
+                flex: 1;
+                max-width: 140px;
+            }
+
+            .popup .claim {
+                background: #0072ff;
+                color: white;
+                box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+            }
+
+            .popup .claim:hover {
+                background: #0058cc;
+                transform: translateY(-2px);
+            }
+
+            .popup .close {
+                background: #f8f9fa;
+                color: #333;
+                border: 1px solid #ddd;
+            }
+
+            .popup .close:hover {
+                background: #e9ecef;
+            }
+
+            /* Final score styles */
+            .final-score {
+                text-align: center;
+                padding: 30px 20px;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .final-score h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                color: var(--text);
+            }
+
+            .final-score p {
+                font-size: 20px;
+                margin-bottom: 30px;
+                color: var(--text-muted);
+            }
+
+            .final-score .coins-earned {
+                font-size: 40px;
+                font-weight: 700;
+                color: var(--accent);
+                margin: 20px 0;
+                display: block;
+            }
+
+            .play-now {
+                display: inline-block;
+                padding: 16px 30px;
+                font-size: 18px;
+                color: var(--text);
+                background: linear-gradient(45deg, var(--success), var(--success-hover));
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                margin-top: 20px;
+                text-transform: uppercase;
+                font-weight: 700;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .play-now::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .play-now:hover::before {
+                left: 100%;
+            }
+
+            .play-now:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            }
+
+            /* Footer styles */
+            footer {
+                text-align: center;
+                padding: 20px 15px;
+                font-size: 13px;
+                background: rgba(0, 0, 0, 0.2);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 15px;
+            }
+
+            .footer-links a {
+                text-decoration: none;
+                font-size: 14px;
+                color: var(--text);
+                opacity: 0.8;
+                transition: var(--transition);
+                position: relative;
+            }
+
+            .footer-links a::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--text);
+                transition: var(--transition);
+            }
+
+            .footer-links a:hover {
+                opacity: 1;
+            }
+
+            .footer-links a:hover::after {
+                width: 100%;
+            }
+
+            /* Loading animation */
+            .loading {
+                display: inline-block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+            }
+
+            .loading div {
+                position: absolute;
+                top: 33px;
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background: var(--accent);
+                animation-timing-function: cubic-bezier(0, 1, 1, 0);
+            }
+
+            .loading div:nth-child(1) {
+                left: 8px;
+                animation: loading1 0.6s infinite;
+            }
+
+            .loading div:nth-child(2) {
+                left: 8px;
+                animation: loading2 0.6s infinite;
+            }
+
+            .loading div:nth-child(3) {
+                left: 32px;
+                animation: loading2 0.6s infinite;
+            }
+
+            .loading div:nth-child(4) {
+                left: 56px;
+                animation: loading3 0.6s infinite;
+            }
+
+            @keyframes loading1 {
+                0% {
+                    transform: scale(0);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes loading3 {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(0);
+                }
+            }
+
+            @keyframes loading2 {
+                0% {
+                    transform: translate(0, 0);
+                }
+                100% {
+                    transform: translate(24px, 0);
+                }
+            }
+
+            /* Accessibility improvements */
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border-width: 0;
+            }
+
+            /* Focus styles for keyboard navigation */
+            a:focus, button:focus {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 480px) {
+                .container {
+                    width: 100%;
+                    max-width: 100%;
+                }
+                
+                .question {
+                    font-size: 20px;
+                }
+                
+                .options button {
+                    font-size: 15px;
+                    padding: 14px 8px;
+                }
+                
+                .description {
+                    font-size: 14px;
+                }
+                
+                .popup-content {
+                    width: 95%;
+                    padding: 20px;
+                }
+                
+                .popup-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .popup button {
+                    max-width: 100%;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .options {
+                    grid-template-columns: 1fr;
+                }
+                
+                .options-container {
+                    min-height: 320px; /* Increased for smaller screens */
+                }
+                
+                .question {
+                    font-size: 18px;
+                }
+                
+                .logo-container p {
+                    font-size: 16px;
+                }
+                
+                .timer-container {
+                    width: 80px;
+                    height: 80px;
+                }
+                
+                .timer-svg {
+                    width: 80px;
+                    height: 80px;
+                }
+                
+                .timer-inner {
+                    width: 60px;
+                    height: 60px;
+                }
+                
+                .timer-seconds {
+                    font-size: 22px;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 500px;
+                }
+                
+                .question {
+                    font-size: 24px;
+                }
+                
+                .options button {
+                    font-size: 17px;
+                }
+                
+                .description {
+                    font-size: 16px;
+                }
+            }
+            
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    /* Dark mode colors are already set as default */
+                }
+            }
+            
+            /* Light mode support */
+            @media (prefers-color-scheme: light) {
+                :root {
+                    /* Keep the same colors for consistency */
+                }
+            }
+
+            /* Modal styles */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 3000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.8);
+                backdrop-filter: blur(5px);
+            }
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 500px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+        </style>
+      
+      
+      
+      
+      
+      
+      
+       
+    
+        
+ 
+    
+    
+        
+    
+      
+      
+      
+      
+      
+      
+      
+      <style>
+          .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 300px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+      
+          .modal[data-type] {
+            display: block;
+          }
+      
+          .modalDialog {
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+      
+          .grantButtons,
+          .rewardButtons {
+            display: none;
+          }
+      
+          .modal[data-type='grant'] .grantButtons,
+          .modal[data-type='reward'] .rewardButtons {
+            display: block;
+          }
+      
+          .modal input[type="button"] {
+            padding: 0.5rem;
+            background: blue;
+            border: none;
+            border-radius: 4px;
+            margin: 4px;
+            color: white;
+          }
+        </style>
+    </head>
+    <body>
+            <div id="modal" class="modal">
+        <div class="modalDialog">
+          <p id="modalMessage"></p>
+
+          <span class="grantButtons">
+            <input type="button" onclick="dismissRewardedAd();" value="Close" />
+          </span>
+        </div>
+      </div>
+        <div class="container">
+            <header>
+                <div class="logo-container">
+                    <div style="width: 40px; height: 40px; background-color: #ff9800; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 20px; color: #000;" aria-label="Quiz Buddy Logo">QT</div>
+                    <div>
+                        <p>QUIZ BUDDY <span class="year-badge">2025</span></p>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="ads-container" role="complementary" aria-label="Advertisement">
+                <center>
+
+   
+   
+  
+   
+   
+   
+   
+
+    </center>
+            </div>
+            
+            <main class="quiz-container" id="quiz-container">
+                <div class="quiz-header">
+                    <div class="coins">
+                        <span><span class="coin-icon" aria-hidden="true">💵</span> Coins: <span id="coins">0</span></span>
+                    </div>
+                    
+                    <div class="progress">
+                        Question <span id="current-question" class="progress-current">1</span> of <span id="total-questions">10</span>
+                    </div>
+                </div>
+                
+                <div class="coin-popup" id="coin-popup" aria-live="polite"></div>
+                
+                <div class="quiz-category">
+                    <span id="category-badge" class="category-badge geography">World Geography</span>
+                </div>
+                
+                <div class="question" id="question" aria-live="polite">Loading your geography quiz...</div>
+                
+                <div class="options-container">
+                    <div class="timer-container" aria-label="Question timer">
+                        <svg class="timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g class="timer-circle">
+                                <circle class="timer-path-elapsed" cx="50" cy="50" r="45" stroke-width="7" />
+                                <path id="timer-path-remaining" 
+                                      stroke-dasharray="283 283" 
+                                      class="timer-path-remaining" 
+                                      d="M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0">
+                                </path>
+                            </g>
+                        </svg>
+                        <span class="timer-label">
+                            <span class="timer-inner"></span>
+                            <span class="timer-seconds" id="timer">30</span>
+                        </span>
+                    </div>
+                    
+                    <div class="options" id="options" role="radiogroup" aria-label="Answer options">
+                        <div class="loading" aria-label="Loading quiz questions">
+                            <div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description" id="description" aria-live="polite">
+                    Loading explanation...
+                </div>
+            </main>
+            
+            <footer>
+                <nav aria-label="Footer Navigation">
+                    <div class="footer-links">
+                        <a href="about-us.html">About Us</a>
+                        <a href="contact-us.html">Contact Us</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                    </div>
+                </nav>
+                <p>&copy; 2025 QUIZ BUDDY. All rights reserved.</p>
+            </footer>
+        </div>
+
+        <div class="popup" id="reward-popup" role="dialog" aria-labelledby="reward-title" aria-modal="true">
+            <div class="popup-content">
+                <h2 id="reward-title">Earn Extra Rewards! 🎁</h2>
+                <p>Watch an ad to earn 500 bonus coins and continue your geography quiz journey!</p>
+                <div class="popup-buttons">
+                    <button class="claim" id="claim-button">Claim Reward</button>
+                    <button class="close" id="close-button">Skip</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Quiz variables
+            let quizzes = {};
+            let selectedQuizzes = [];
+            let currentQuiz = 0;
+            let coins = 0;
+            let timerInterval;
+            let timePassed = 0;
+            const TIME_LIMIT = 30;
+            const FULL_DASH_ARRAY = 283;
+            const TOTAL_QUESTIONS = 10;
+            let selectedCategory = 'geography'; // Default to geography category
+
+            // Geography quiz questions
+            const geographyQuestions = [
+                {
+                    "question": "Which is the largest country in the world by land area?",
+                    "options": ["Russia", "Canada", "China", "United States"],
+                    "answer": "Russia",
+                    "description": "Russia is the largest country in the world by land area, covering approximately 17.1 million square kilometers (6.6 million square miles). It spans 11 time zones and extends across Eastern Europe and Northern Asia."
+                },
+                {
+                    "question": "Which mountain range separates Europe from Asia?",
+                    "options": ["Alps", "Himalayas", "Ural Mountains", "Andes"],
+                    "answer": "Ural Mountains",
+                    "description": "The Ural Mountains form a natural boundary between Europe and Asia. They run approximately north to south through western Russia, from the coast of the Arctic Ocean to the Ural River and northwestern Kazakhstan."
+                },
+                {
+                    "question": "Which is the longest river in the world?",
+                    "options": ["Amazon", "Nile", "Yangtze", "Mississippi-Missouri"],
+                    "answer": "Nile",
+                    "description": "The Nile River is generally considered the longest river in the world, flowing about 6,650 kilometers (4,130 miles) through northeastern Africa. The Amazon River is a close second and actually carries the largest volume of water."
+                },
+                {
+                    "question": "Which country has the most natural lakes?",
+                    "options": ["United States", "Russia", "Canada", "Finland"],
+                    "answer": "Canada",
+                    "description": "Canada has more lakes than any other country in the world, with over 2 million lakes. About 9% of Canada's territory is covered by freshwater, and it contains approximately 60% of all the lakes in the world."
+                },
+                {
+                    "question": "Which desert is the largest in the world?",
+                    "options": ["Gobi Desert", "Kalahari Desert", "Sahara Desert", "Antarctic Desert"],
+                    "answer": "Antarctic Desert",
+                    "description": "The Antarctic Desert is technically the largest desert in the world, covering about 14 million square kilometers (5.4 million square miles). Many people think of the Sahara as the largest, but it's actually the largest hot desert, covering about 9.2 million square kilometers."
+                },
+                {
+                    "question": "Which country is both in Europe and Asia?",
+                    "options": ["Russia", "Turkey", "Egypt", "All of these"],
+                    "answer": "All of these",
+                    "description": "Russia, Turkey, and Egypt all have territory in both Europe and Asia. Russia spans Eastern Europe and Northern Asia, Turkey straddles Western Asia and Southeast Europe, and Egypt (through the Sinai Peninsula) has territory in both Northeast Africa and Southwest Asia."
+                },
+                {
+                    "question": "Which is the smallest country in the world by land area?",
+                    "options": ["Monaco", "Nauru", "Vatican City", "Maldives"],
+                    "answer": "Vatican City",
+                    "description": "Vatican City is the smallest country in the world, with an area of just 0.49 square kilometers (0.19 square miles). It is an independent city-state enclaved within Rome, Italy, and is the spiritual center of the Roman Catholic Church."
+                },
+                {
+                    "question": "Which ocean is the largest?",
+                    "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+                    "answer": "Pacific Ocean",
+                    "description": "The Pacific Ocean is the largest and deepest ocean on Earth, covering more than 60 million square miles (155 million square kilometers). It contains more than half of the free water on Earth and is larger than all the Earth's land area combined."
+                },
+                {
+                    "question": "Which country has the most islands in the world?",
+                    "options": ["Indonesia", "Philippines", "Japan", "Sweden"],
+                    "answer": "Sweden",
+                    "description": "Sweden has the most islands of any country in the world, with an estimated 267,570 islands. However, only about 1,000 of these islands are inhabited. Indonesia, often thought to have the most, has about 17,508 islands."
+                },
+                {
+                    "question": "Which is the highest waterfall in the world?",
+                    "options": ["Niagara Falls", "Victoria Falls", "Angel Falls", "Iguazu Falls"],
+                    "answer": "Angel Falls",
+                    "description": "Angel Falls in Venezuela is the world's highest uninterrupted waterfall, with a height of 979 meters (3,212 feet) and a plunge of 807 meters (2,648 feet). It is named after Jimmy Angel, an American aviator who was the first to fly over the falls."
+                },
+                {
+                    "question": "Which country is home to the Great Barrier Reef?",
+                    "options": ["Indonesia", "Australia", "Philippines", "Mexico"],
+                    "answer": "Australia",
+                    "description": "The Great Barrier Reef is located off the northeastern coast of Australia. It is the world's largest coral reef system, composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometers (1,400 miles)."
+                },
+                {
+                    "question": "Which African country has the most pyramids?",
+                    "options": ["Egypt", "Sudan", "Libya", "Algeria"],
+                    "answer": "Sudan",
+                    "description": "While Egypt is famous for its pyramids, Sudan actually has more pyramids than any other country in the world, with over 200 pyramids. These were built by the rulers of the ancient Kushite kingdoms, which ruled in the area between 2500 BCE and 300 CE."
+                },
+                {
+                    "question": "Which is the driest place on Earth?",
+                    "options": ["Sahara Desert", "Atacama Desert", "Death Valley", "Antarctic Dry Valleys"],
+                    "answer": "Antarctic Dry Valleys",
+                    "description": "The McMurdo Dry Valleys in Antarctica are the driest place on Earth. Some areas have received no precipitation for over 2 million years, and the average annual precipitation is less than 10 millimeters (0.4 inches)."
+                },
+                {
+                    "question": "Which country has the most time zones?",
+                    "options": ["Russia", "United States", "France", "Australia"],
+                    "answer": "France",
+                    "description": "France has the most time zones of any country, with 12 different time zones. This is because France has territories and departments spread around the world, including in the Pacific, Caribbean, South America, and the Indian Ocean."
+                },
+                {
+                    "question": "Which is the oldest continuously inhabited city in the world?",
+                    "options": ["Athens, Greece", "Jerusalem, Israel", "Damascus, Syria", "Varanasi, India"],
+                    "answer": "Damascus, Syria",
+                    "description": "Damascus, the capital of Syria, is widely considered to be the oldest continuously inhabited city in the world, with evidence of habitation dating back to at least 11,000 years ago. The city has been an important cultural and commercial center throughout history."
+                }
+            ];
+
+            // DOM elements
+            document.addEventListener('DOMContentLoaded', function() {
+                const questionElement = document.getElementById('question');
+                const optionsElement = document.getElementById('options');
+                const coinsElement = document.getElementById('coins');
+                const coinPopupElement = document.getElementById('coin-popup');
+                const descriptionElement = document.getElementById('description');
+                const timerElement = document.getElementById('timer');
+                const timerPathRemainingElement = document.getElementById('timer-path-remaining');
+                const rewardPopup = document.getElementById('reward-popup');
+                const claimButton = document.getElementById('claim-button');
+                const closeButton = document.getElementById('close-button');
+                const currentQuestionElement = document.getElementById('current-question');
+                const totalQuestionsElement = document.getElementById('total-questions');
+                const categoryBadgeElement = document.getElementById('category-badge');
+
+                // Set total questions
+                totalQuestionsElement.textContent = TOTAL_QUESTIONS;
+
+                // Load saved coins from localStorage
+                const savedCoins = localStorage.getItem('coins');
+                if (savedCoins) {
+                    coins = parseInt(savedCoins);
+                    coinsElement.textContent = coins;
+                }
+
+                // Get category from URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('category')) {
+                    selectedCategory = urlParams.get('category');
+                    
+                    // Update category badge
+                    categoryBadgeElement.textContent = selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1);
+                    categoryBadgeElement.className = `category-badge ${selectedCategory}`;
+                }
+
+                // Store the current category in localStorage
+                localStorage.setItem('selectedCategory', selectedCategory);
+
+                // Load questions and start quiz
+                function loadQuestions() {
+                    try {
+                        // Use the embedded geography questions
+                        console.log("Geography questions loaded:", geographyQuestions.length);
+                        
+                        // Select random questions
+                        selectedQuizzes = [...geographyQuestions]
+                            .sort(() => 0.5 - Math.random())
+                            .slice(0, TOTAL_QUESTIONS);
+                        
+                        loadQuiz();
+                    } catch (error) {
+                        console.error('Error loading questions:', error);
+                        questionElement.textContent = "Failed to load geography questions. Please try again.";
+                        optionsElement.innerHTML = `
+                            <button onclick="window.location.reload()">Reload Quiz</button>
+                        `;
+                    }
+                }
+
+                // Start the timer
+                function startTimer() {
+                    clearInterval(timerInterval);
+                    
+                    let timeLeft = TIME_LIMIT;
+                    timerElement.textContent = timeLeft;
+                    
+                    // Reset the timer path
+                    timerPathRemainingElement.setAttribute("stroke-dasharray", `${FULL_DASH_ARRAY} ${FULL_DASH_ARRAY}`);
+                    timerPathRemainingElement.classList.remove("warning", "alert");
+                    
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        timerElement.textContent = timeLeft;
+                        
+                        // Update the timer path
+                        const circleDasharray = `${calculateTimeFraction(timeLeft) * FULL_DASH_ARRAY} ${FULL_DASH_ARRAY}`;
+                        timerPathRemainingElement.setAttribute("stroke-dasharray", circleDasharray);
+                        
+                        // Change color based on time remaining
+                        if (timeLeft <= 10 && timeLeft > 5) {
+                            timerPathRemainingElement.classList.remove("alert");
+                            timerPathRemainingElement.classList.add("warning");
+                        } else if (timeLeft <= 5) {
+                            timerPathRemainingElement.classList.remove("warning");
+                            timerPathRemainingElement.classList.add("alert");
+                        }
+                        
+                        if (timeLeft === 0) {
+                            clearInterval(timerInterval);
+                            handleTimeUp();
+                        }
+                    }, 1000);
+                }
+
+                // Calculate the fraction of time left
+                function calculateTimeFraction(timeLeft) {
+                    return timeLeft / TIME_LIMIT;
+                }
+
+                // Handle when time is up
+                function handleTimeUp() {
+                    // Mark the correct answer
+                    const correctIndex = selectedQuizzes[currentQuiz].options.indexOf(selectedQuizzes[currentQuiz].answer);
+                    const buttons = document.querySelectorAll('.options button');
+                    
+                    if (buttons && buttons.length > correctIndex) {
+                        buttons[correctIndex].classList.add('correct');
+                    }
+                    
+                    // Deduct coins for not answering
+                    coins -= 25;
+                    coinsElement.textContent = coins;
+                    
+                    coinPopupElement.textContent = "-25";
+                    coinPopupElement.style.color = "red";
+                    coinPopupElement.style.display = "block";
+                    coinPopupElement.style.animation = "fadeMove 1.5s forwards";
+                    
+                    setTimeout(() => {
+                        coinPopupElement.style.display = "none";
+                        moveToNextQuestion();
+                    }, 2000);
+                }
+
+                // Load the current quiz
+                function loadQuiz() {
+                    if (currentQuiz < selectedQuizzes.length) {
+                        const quiz = selectedQuizzes[currentQuiz];
+                        
+                        // Update question and progress
+                        questionElement.textContent = quiz.question;
+                        currentQuestionElement.textContent = currentQuiz + 1;
+                        
+                        // Clear options and add new ones
+                        optionsElement.innerHTML = "";
+                        
+                        // Create option buttons
+                        for (let i = 0; i < quiz.options.length; i++) {
+                            const button = document.createElement('button');
+                            button.textContent = quiz.options[i];
+                            button.setAttribute('role', 'radio');
+                            button.setAttribute('aria-checked', 'false');
+                            button.setAttribute('tabindex', '0');
+                            button.onclick = () => checkAnswer(quiz.options[i] === quiz.answer, button, quiz.options.indexOf(quiz.answer));
+                            optionsElement.appendChild(button);
+                        }
+                        
+                        // Update description
+                        descriptionElement.innerHTML = quiz.description || "No additional information available for this question.";
+                        
+                        // Start the timer
+                        startTimer();
+                    } else {
+                        showFinalScore();
+                    }
+                }
+
+                // Check if the answer is correct
+                function checkAnswer(isCorrect, button, correctIndex) {
+                    // Stop the timer
+                    clearInterval(timerInterval);
+                    
+                    // Mark the selected answer
+                    if (isCorrect) {
+                        button.classList.add('correct');
+                        button.setAttribute('aria-checked', 'true');
+                    } else {
+                        button.classList.add('wrong');
+                        button.setAttribute('aria-checked', 'true');
+                        const buttons = document.querySelectorAll('.options button');
+                        if (buttons && buttons.length > correctIndex) {
+                            buttons[correctIndex].classList.add('correct');
+                        }
+                    }
+                    
+                    // Disable all buttons
+                    const buttons = document.querySelectorAll('.options button');
+                    buttons.forEach(btn => {
+                        btn.disabled = true;
+                        btn.style.cursor = 'default';
+                    });
+                    
+                    // Update coins
+                    let coinChange = isCorrect ? 100 : -50;
+                    coins += coinChange;
+                    coinsElement.textContent = coins;
+                    
+                    // Save coins to localStorage
+                    localStorage.setItem('coins', coins.toString());
+                    
+                    // Show coin popup
+                    coinPopupElement.textContent = `${coinChange > 0 ? "+" : ""}${coinChange}`;
+                    coinPopupElement.style.color = coinChange > 0 ? "#28a745" : "#dc3545";
+                    coinPopupElement.style.display = "block";
+                    coinPopupElement.style.animation = "fadeMove 1.5s forwards";
+                    
+                    // Move to next question after delay
+                    setTimeout(() => {
+                        coinPopupElement.style.display = "none";
+                        moveToNextQuestion();
+                    }, 2000);
+                }
+
+                // Move to the next question or show ad
+                function moveToNextQuestion() {
+                    // Show ad popup every 3 questions or at the beginning
+                    if (currentQuiz === 0 || (currentQuiz + 1) % 3 === 0) {
+                        showRewardPopup();
+                    } else {
+                        currentQuiz++;
+                        loadQuiz();
+                    }
+                }
+
+                // Show the reward popup
+                function showRewardPopup() {
+                    rewardPopup.style.display = "flex";
+                }
+
+                // Hide the reward popup
+                function hideRewardPopup() {
+                    rewardPopup.style.display = "none";
+                }
+
+                // Show the final score
+                function showFinalScore() {
+                    // Save the final score to localStorage
+                    localStorage.setItem('finalScore', coins.toString());
+                    localStorage.setItem('coins', coins.toString());
+                    
+                    // Update the quiz container with final score
+                    document.getElementById('quiz-container').innerHTML = `
+                        <div class="final-score">
+                            <h2>World Geography Quiz Completed! 🌎</h2>
+                            <p>Your Final Score:</p>
+                            <span class="coins-earned">${coins} coins</span>
+                            <p>Great job exploring the world! Ready for another challenge?</p>
+                            <button class="play-now" onclick="window.location.href='categories.html'">More Quizzes</button>
+                        </div>
+                    `;
+                }
+
+                // Event listeners for popup buttons
+                if (claimButton) {
+                    claimButton.addEventListener('click', () => {
+                        // Add coins and update display
+                        coins += 500;
+                        coinsElement.textContent = coins;
+                        localStorage.setItem('coins', coins.toString());
+                        
+                        // Hide popup and move to next question
+                        hideRewardPopup();
+                        currentQuiz++;
+                        loadQuiz();
+                    });
+                }
+
+                if (closeButton) {
+                    closeButton.addEventListener('click', () => {
+                        hideRewardPopup();
+                        currentQuiz++;
+                        loadQuiz();
+                    });
+                }
+
+                // Add keyboard navigation for options
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        if (document.activeElement.tagName === 'BUTTON' && 
+                            document.activeElement.parentNode.classList.contains('options')) {
+                            document.activeElement.click();
+                        }
+                    }
+                });
+
+                // Load questions when the page loads
+                loadQuestions();
+            });
+        </script>
+    </body>
+    </html>
